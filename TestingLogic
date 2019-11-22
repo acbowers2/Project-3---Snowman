@@ -55,7 +55,7 @@ public class TestingLogic
          s = s.toLowerCase();
          char guess = s.charAt(0);
          
-         if(s.matches("[0-9.]"))
+         if(s.matches("[^a-z]"))
             System.out.println("Sorry! Needs to be a letter!");
          else if(tried.contains(guess + "")){
                System.out.println("You already tried that one, please input another.");
@@ -77,9 +77,8 @@ public class TestingLogic
             
             else
             {
-               System.out.println("Oh No! That was a bad guess. You now have " + attempts + " attempts remaining.");
-               
                attempts--;
+               System.out.println("Oh No! That was a bad guess. You now have " + attempts + " attempts remaining.");
                tried += guess + " ";
                System.out.println();
                System.out.println("You have tried the followed letters: " + tried);
