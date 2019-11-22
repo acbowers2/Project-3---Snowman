@@ -2,12 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class CreateWords{
-   
-   private CreateWords()
-   {
-      //private constructor to keep it from creating the objects
-   }
+public abstract class CreateWords{
 
    public static String pullWord()
    {
