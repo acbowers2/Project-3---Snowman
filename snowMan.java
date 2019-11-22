@@ -1,7 +1,9 @@
 public class snowMan{
+   private int attempts;
+   
    public static void snowMan(String word, char[] empty)
    {
-      int attempts = 9;
+      this.attempts = 9;
       String tried = "";
       Scanner kb = new Scanner(System.in);
       boolean gameOn = true;
@@ -43,11 +45,11 @@ public class snowMan{
             {
                System.out.println("Oh No! That was a bad guess. You now have " + attempts + " attempts remaining.");
                
-               attempts--;
+               this.attempts--;
                tried += guess + " ";
                System.out.println();
                System.out.println("You have tried the followed letters: " + tried);
-               if(attempts == 0)
+               if(this.attempts == 0)
                   gameOn = false;
             }//end bad guess
             for(int i = 0; i < empty.length; i++)
@@ -64,4 +66,7 @@ public class snowMan{
 
       }//end while
       
+      public static int getAttempts(){
+        return this.attmepts;
+   }
 }
