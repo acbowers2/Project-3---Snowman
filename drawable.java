@@ -1,3 +1,2 @@
-public class drawable{
-     
+public interface drawable{
 }
