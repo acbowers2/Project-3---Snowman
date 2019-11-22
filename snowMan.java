@@ -68,5 +68,23 @@ public class snowMan{
       
       public static int getAttempts(){
         return this.attmepts;
+         
+      }
+        
+     if(won == true){
+        System.out.println("You have won the game!");
+        System.out.println("The word was: " + word);
+        System.out.print("Congratulations! Please play again!");
+     }
+     else
+         System.out.println("Oh no... you lost...");
+         System.out.println("The word was: " + word);
+         System.out.print("Please play again!");
+      
+      }
+      
+      public static int getAttempts(){
+        return this.attmepts;
+         
    }
 }
