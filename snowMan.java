@@ -84,7 +84,7 @@ public class snowMan{
       }
       
       public static int getAttempts(){
-        return this.attmepts;
+        return this.attempts;
          
    }
 }
