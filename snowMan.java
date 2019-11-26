@@ -1,90 +1,45 @@
-public class snowMan{
-   private int attempts;
+import java.util.Scanner;
+
+public class SnowMan extends CreateWords
+{
+   private int attempts; 
+   private char[] empty;
    
-   public static void snowMan(String word, char[] empty)
+   public SnowMan()
    {
+      this.empty = CreateWords.makeEmpty(super.word);
       this.attempts = 9;
-      String tried = "";
-      Scanner kb = new Scanner(System.in);
-      boolean gameOn = true;
-      boolean won = false;
+      System.out.print(word);
       
-      while(gameOn == true)
-      {
-         String winCondition = "";
-         System.out.print("Your current array looks like this :");
-         for(int i = 0; i < empty.length; i++)
-            System.out.print(empty[i]);
-         System.out.println();
-         System.out.println("Please guess a letter: ");
-         String s = kb.nextLine();
-         s = s.toLowerCase();
-         char guess = s.charAt(0);
-         
-         if(s.matches("[0-9.]"))
-            System.out.println("Sorry! Needs to be a letter!");
-         else if(tried.contains(guess + "")){
-               System.out.println("You already tried that one, please input another.");
-            }
-
-         else{
-            if(word.contains(guess + ""))
-            {                 
-               System.out.println("The guessed letter is in the word!");
-               tried += guess + " ";
-               for(int i = 0; i < word.length(); i++){
-                  char hold = word.charAt(i);
-                  if(hold == guess)
-                  {
-                     empty[i] = guess;
-                  } 
-               }
-            }//end contained guess if
-            
-            else
-            {
-               System.out.println("Oh No! That was a bad guess. You now have " + attempts + " attempts remaining.");
-               
-               this.attempts--;
-               tried += guess + " ";
-               System.out.println();
-               System.out.println("You have tried the followed letters: " + tried);
-               if(this.attempts == 0)
-                  gameOn = false;
-            }//end bad guess
-            for(int i = 0; i < empty.length; i++)
-            {
-               winCondition += empty[i];
-            }
-            if(!winCondition.contains("-")){
-               gameOn = false;
-               won = true;
-            }
-         }//end guess was letter else
-         System.out.println();
-         System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~\n");
-
-      }//end while
-      
-      public static int getAttempts(){
-        return this.attmepts;
-         
-      }
-        
-     if(won == true){
-        System.out.println("You have won the game!");
-        System.out.println("The word was: " + word);
-        System.out.print("Congratulations! Please play again!");
-     }
-     else
-         System.out.println("Oh no... you lost...");
-         System.out.println("The word was: " + word);
-         System.out.print("Please play again!");
-      
-      }
-      
-      public static int getAttempts(){
-        return this.attempts;
-         
    }
-}
+   
+   public void playGame(char guess)
+   {
+      //this recieves the guessed char, finds out if it is in the string
+      //if in string it will be sent to correctArray()
+      //if not in the array it will be sent to wrongGuess()
+   }
+   
+   public void correctArray(char letter)
+   {
+      //this method runs the for-loop to replace the '-' in the empty[] with the letter at the correct spot
+      //doesn't return anything
+   }
+   
+   public void wrongGuess()
+   {
+      //counts down the attempts
+   }
+   
+   public boolean didWin()
+   {
+      boolean didWin = false;
+      //this will see if the empty[] still holds any '-' and print out the correct statemtns
+      return didWin;
+   }
+   
+   public boolean didLose()
+   {
+      //if attempts == 0, this will return true, otherwise false and print out the correct statements
+   }
+}//end SnowMan
