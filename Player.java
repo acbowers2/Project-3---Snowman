@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Player
 {
    private String alreadyGuessed;
+   private char guessedLetter;
    
    public Player()
    {
@@ -20,6 +21,14 @@ public class Player
       //in an if/else if/else blick it will request the status of the  boolean for if it won, then request the boolean for if it lost, 
       //and if both return false it will run again
       //Snowman will print out the correct statements, and if either is true it will switch gameOn boolean to false to end the loop
+      boolean gameOn = true;
+      while(gameOn == true)
+      {
+         char guess = guessChar();
+         Snowman.playgame();
+      }
+
+      
    }
    
    public char guessChar()
@@ -29,5 +38,9 @@ public class Player
       //will put it into lowercase
       // guessChar will return charGuessed
 
+   }
+   public char getGuessedLetter()
+   {
+      return this.guessedLetter;
    }
 }//end Player
