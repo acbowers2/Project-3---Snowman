@@ -1,5 +1,5 @@
 public interface Playable
 {
-   public abstract void gameOn();
+   public abstract void playGame();
 
 }//end Playable
