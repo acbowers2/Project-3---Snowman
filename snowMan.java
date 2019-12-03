@@ -18,7 +18,7 @@ public class SnowMan extends CreateWords
       //calls on finds out if it is in the string
       //if in string it will be sent to correctArray()
       //if not in the array it will be sent to wrongGuess()
-      char guessed = Player.getGuess();
+      char guessed = Player.getGuess(); //WILL HAVE TO CHANGE
       if(this.word.contains(guessed + ""))
          this.correctArray(guessed);
       else
@@ -29,19 +29,24 @@ public class SnowMan extends CreateWords
    {
       //this method runs the for-loop to replace the '-' in the empty[] with the letter at the correct spot
       //doesn't return anything
+      for(int i = 0; i < empty.length; i++)
+      {
+         if(this.word.charAt(i) == letter)
+            empty[i] = letter;
+      }
    }
    
    public void wrongGuess()
    {
       //counts down the attempts
-      attempts--;
+      this.attempts--;
    }
    
    public boolean didWin()
    {
       //this will see if the empty[] still holds any '-' and print out the correct statements
       boolean didWin = true;
-      for(int i = 0; i < empty.length; i++)
+      for(int i = 0; i < this.empty.length; i++)
       {
          if(empty[i] == '-')
             didWin = false;
