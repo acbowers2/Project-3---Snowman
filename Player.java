@@ -40,7 +40,7 @@ public class Player implements Playable
          String s = kb.nextLine();
          s = s.toLowerCase();
          
-         if(s.matches("[^a-z]") || s.contains(" "))
+         if(s.matches("[^a-z]+") || s.contains(" "))
             System.out.println("Sorry! Needs to be a letter!");
          else if(s.matches(""))
             System.out.println("You hit enter too fast.");
