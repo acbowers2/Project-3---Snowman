@@ -1,46 +1,63 @@
 import java.util.Scanner;
 
-public class Player
+public class Player implements Playable
 {
    private String alreadyGuessed;
    private char guessedLetter;
+   SnowMan snowyDay;
    
    public Player()
    {
+      this.snowyDay = new SnowMan();
       this.alreadyGuessed = "";
    }
    
    public void playGame()
    {
-      //where the while loop for the game steps will live, while loop runs while gameOn is true
-      //it will call on guessChar for input from the player
-      //it will compare it to the existing string alreadyGuessed
-      //will check for if it is a letter and not an empty space or anything NOT a letter
-      //if not in the string but it is a letter, it will pass it onto playGame in SnowMan
-      //either way it will get put into alreadyGuessed
-      //in an if/else if/else blick it will request the status of the  boolean for if it won, then request the boolean for if it lost, 
-      //and if both return false it will run again
-      //Snowman will print out the correct statements, and if either is true it will switch gameOn boolean to false to end the loop
-      boolean gameOn = true;
-      while(gameOn == true)
+      //where the while loop for the game will live, while loop runs while gameOn is true
+      while(snowyDay.getGameOn() == true)
       {
-         char guess = guessChar();
-         Snowman.playgame();
+         snowyDay.printArray();
+         System.out.println("The letters you have guessed are: " + this.alreadyGuessed);
+         guessChar();
+         snowyDay.playGame();
+         this.alreadyGuessed += guessedLetter + " ";
+         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
       }
-
-      
    }
    
-   public char guessChar()
+   public void guessChar()
    {
-      
       //the while loop in playGame will call get the user inputting char
       //will put it into lowercase
-      // guessChar will return charGuessed
-
+      
+      Scanner kb = new Scanner(System.in);
+      char guess;
+      boolean goodLetter = false;
+      
+      while(goodLetter == false){
+         System.out.println("Please guess a letter: ");
+         String s = kb.nextLine();
+         s = s.toLowerCase();
+         
+         if(s.matches("[^a-z ]"))
+            System.out.println("Sorry! Needs to be a letter!");
+         else if(s.matches(""))
+            System.out.println("You hit enter too fast.");
+         else if(this.alreadyGuessed.contains(s)){
+               System.out.println("You already tried that one, please input another.");
+         }
+         else{
+            this.guessedLetter = s.charAt(0);
+            snowyDay.setGuessedLetter(this.guessedLetter);
+            goodLetter = true;
+         }
+      }
    }
+   
    public char getGuessedLetter()
    {
       return this.guessedLetter;
    }
+   
 }//end Player
