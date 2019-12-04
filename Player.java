@@ -36,11 +36,11 @@ public class Player implements Playable
       boolean goodLetter = false;
       
       while(goodLetter == false){
-         System.out.println("Please guess a letter: ");
+         System.out.println("Please guess a letter (only the first letter counts!): ");
          String s = kb.nextLine();
          s = s.toLowerCase();
          
-         if(s.matches("[^a-z ]"))
+         if(s.matches("[^a-z]") || s.contains(" "))
             System.out.println("Sorry! Needs to be a letter!");
          else if(s.matches(""))
             System.out.println("You hit enter too fast.");
